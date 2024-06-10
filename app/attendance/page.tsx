@@ -1,5 +1,8 @@
+'use client'
+
 import Link from 'next/link'
 import React from 'react'
+import { IoArrowBackOutline } from 'react-icons/io5'
 
 const Attendance = () => {
   const attendanceData = [
@@ -24,13 +27,18 @@ const Attendance = () => {
       name: 'Attendance Report',
     },
   ]
-
+  const backBtn = () => {
+    window.history.back()
+  }
   return (
     <div className=" ">
+      <div className=" flex     items-center bg-indigo-700">
+        <button onClick={backBtn} className="btn btn-ghost">
+          <IoArrowBackOutline className="text-3xl" />
+        </button>
+        <h2 className="  flex justify-center w-full text-2xl">Attendes</h2>
+      </div>
       <div className=" container mx-auto">
-        <h2 className=" bg-indigo-700 h-12 flex justify-start px-4 py-4 ">
-          Attendance
-        </h2>
         <div className="grid grid-cols-2 gap-4 mt-4">
           {attendanceData.map((item) => (
             <Link
